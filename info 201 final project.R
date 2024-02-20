@@ -5,6 +5,8 @@ mental_illness_df <- read.csv("mental-illness-estimated-cases.csv")
 #join dataframes
 food_mental_df <- left_join(mental_illness_df, food_df)
 
+food_mental_df <- na.omit(food_mental_df)
+
 #create new numerical column
 food_mental_df <- food_mental_df %>% 
   mutate(Total.mental.disorders.cases = Current.number.of.cases.of.anxiety.disorders..in.both.sexes.aged.all.ages
