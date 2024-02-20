@@ -31,4 +31,5 @@ avg_sugar_df <- food_mental_df %>%
   group_by(Entity) %>%
   summarize(avg.sugar.intake = mean(Daily.caloric.intake.per.person.from.sugar, na.rm = TRUE))
   
+write.csv(food_mental_df, "diet-with-mental-illness-cases.csv")
   
