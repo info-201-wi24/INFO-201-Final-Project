@@ -1,5 +1,7 @@
+#library statements
 library(dplyr) 
 
+#loads in dataset
 food_df <- read.csv("dietary-compositions-by-commodity-group.csv")
 
 mental_illness_df <- read.csv("mental-illness-estimated-cases.csv")
@@ -32,6 +34,7 @@ food_mental_df <- food_mental_df %>%
 avg_sugar_df <- food_mental_df %>% 
   group_by(Entity) %>%
   summarize(avg.sugar.intake = mean(Daily.caloric.intake.per.person.from.sugar, na.rm = TRUE))
-  
-write.csv(food_mental_df, "diet-with-mental-illness-cases.csv")
+
+#export new csv file
+write.csv(food_mental_df, "final-diet-with-mental-illness.csv")
   
