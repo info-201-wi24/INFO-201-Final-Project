@@ -1,4 +1,4 @@
-# Title of Your Final Project Here 
+# Dietary Composition and Mental Health 
 ## INFO 201 "Foundational Skills for Data Science"
 
 Authors: Amy Chung, Sophia Zuo, Tian Ruifeng, Sena Mohammed Birka

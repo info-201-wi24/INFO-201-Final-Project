@@ -1,1 +1,0 @@
-read.csv("diet-with-mental-illness-cases.csv")
