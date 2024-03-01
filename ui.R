@@ -1,6 +1,7 @@
 library(ggplot2)
 library(plotly)
 library(bslib)
+library(markdown)
 
 #read file
 df <- read.csv("final-diet-with-mental-illness.csv", stringsAsFactors = FALSE)
