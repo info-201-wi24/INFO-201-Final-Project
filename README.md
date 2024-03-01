@@ -1,7 +1,7 @@
 # Dietary Composition and Mental Health 
 ## INFO 201 "Foundational Skills for Data Science"
 
-Authors: Amy Chung, Sophia Zuo, Tian Ruifeng, Sena Mohammed Birka
+Authors: Amy Chung, Sophia Zuo, Ruifeng Tian, Sena Mohammed Birka
 
 
 For the Final Project -- Data Wrangling, add the following to this code repository:

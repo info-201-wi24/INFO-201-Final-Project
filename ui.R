@@ -1,6 +1,5 @@
 library(ggplot2)
 library(plotly)
-
 library(bslib)
 
 #read file
@@ -46,11 +45,19 @@ category_colnames <- c(
   "Other" = "Daily.caloric.intake.per.person.from.other.commodities"
 )
 
+#color theme
+my_theme <- bs_theme(bg = "#edf6f9", #background
+                     fg = "black", #foreground color
+                     primary = "#90e0ef") # primary color
+
+
 ## OVERVIEW TAB INFO
 
 overview_tab <- tabPanel("Overview",
-   h1("Exploring Associations Between Mental Disorders and Dietary Compositions"),
-   p("some explanation")
+   h1("Exploring Associations Between Mental Health and Dietary Compositions"),
+   img(src="nutrition.png", height="50%", width="50%"),
+   p("some explanation"),
+   includeMarkdown("intro_text.md")
 )
 
 ## VIZ 1 TAB INFO
@@ -72,12 +79,13 @@ viz_1_sidebar <- sidebarPanel(
               label = "Country",
               choices = df$Entity,
               selected = 1,
-              multiple = FALSE),
+              multiple = FALSE)
 )
 
 viz_1_main_panel <- mainPanel(
   h2("Dietary Composition and Mental Disorders of Countries"),
-  plotlyOutput(outputId = "country_bar")
+  plotlyOutput(outputId = "country_bar"),
+  includeMarkdown("tab_1_text.md")
 )
 
 viz_1_tab <- tabPanel("Disorder/Food Type",
@@ -110,8 +118,10 @@ viz_2_sidebar <- sidebarPanel(
 
 viz_2_main_panel <- mainPanel(
   h2("Mental Disorder and Diet Trends Over the Years"),
-  plotlyOutput(outputId = "trend_plot")
+  plotlyOutput(outputId = "trend_plot"),
+  includeMarkdown("tab_2_text.md")
 )
+  
 
 viz_2_tab <- tabPanel("Trends Over Time",
   sidebarLayout(
@@ -143,8 +153,9 @@ viz_3_sidebar <- sidebarPanel(
 )
 
 viz_3_main_panel <- mainPanel(
-  h2("Vizualization 3 Title"),
-  plotlyOutput(outputId = "scatter_plot")
+  h2("Food Comsumption versus Mental Disorder Prevalence"),
+  plotlyOutput(outputId = "scatter_plot"),
+  includeMarkdown("tab_3_text.md")
 )
 
 viz_3_tab <- tabPanel("Food vs Mental Health",
@@ -158,12 +169,17 @@ viz_3_tab <- tabPanel("Food vs Mental Health",
 
 conclusion_tab <- tabPanel("Conclusion",
  h1("Some title"),
- p("some conclusions")
+ img(src="mental health.png", height="30%", width="30%"),
+ p("some conclusions"),
+ includeMarkdown("conclusion_text.md"),
+ img(src="food-groups.png", height="30%", width="30%"),
 )
 
 #Overall UI Navbar
 
-ui <- navbarPage("Mental Health-Diet",
+ui <- navbarPage(
+  theme = my_theme,
+  "Mental Health-Diet",
   overview_tab,
   viz_1_tab,
   viz_2_tab,

@@ -48,28 +48,36 @@ server <- function(input, output){
         my_plot <- ggplot(food_selected_df)+
           geom_col(mapping = aes(
             x = food.kilocalories,
-            y = food.type)) +
-            #fill = food.type)) +
-          #scale_y_discrete(labels = c()) +
+            y = food.type,
+            fill = food.type,
+            text = paste("Number of kcal: ", food.kilocalories))) +
+          scale_y_discrete(labels = c(
+            "Daily.caloric.intake.per.person.from.alcoholic.beverages" = "Alcoholic Bevarages",
+             "Daily.caloric.intake.per.person.from.sugar" = "Sugar",
+            "Daily.caloric.intake.per.person.from.meat" = "Meat",
+             "Daily.caloric.intake.per.person.from.starchy.roots" = "Starchy Roots",
+             "Daily.caloric.intake.per.person.from.pulses" = "Pulses/Legumes", 
+              "Daily.caloric.intake.per.person.from.dairy.and.eggs" = "Dairy and Eggs",
+              "Daily.caloric.intake.per.person.from.oils.and.fats" = "Oils and Fats", 
+               "Daily.caloric.intake.per.person.from.cereals.and.grains" = "Cereals and Grains",
+               "Daily.caloric.intake.per.person.from.other.commodities" = "Other")) +
           labs(x = "Daily Calorie Intake Per Person (kcal)", y = "Food Type")
       } else if (input$button_choice %in% 2){
         my_plot <- ggplot(mental_selected_df)+
       geom_col(mapping = aes(
         x = mental.disorder.cases,
-        y = mental.disorder.type)) +
-        #fill = mental.disorder.type)) +
+        y = mental.disorder.type,
+        fill = mental.disorder.type,
+        text = paste("Number of Cases: ", mental.disorder.cases))) +
+          scale_y_discrete(labels = c(
+          "Current.number.of.cases.of.anxiety.disorders..in.both.sexes.aged.all.ages" = "Anxiety Disorder",
+          "Current.number.of.cases.of.depressive.disorders..in.both.sexes.aged.all.ages" = "Depressive Disorder",
+          "Current.number.of.cases.of.schizophrenia..in.both.sexes.aged.all.ages" = "Schizophrenia",
+          "Current.number.of.cases.of.bipolar.disorder..in.both.sexes.aged.all.ages" = "Bipolar Disorder", 
+          "Current.number.of.cases.of.eating.disorders..in.both.sexes.aged.all.ages" = "Eating Disorder")) +
         labs(x = "Number of Mental Disorder Cases", y = "Mental Disorder Type") +
         scale_x_continuous(labels = label_number(scale_cut = cut_short_scale()))
        }
-      
-      
-      # my_plot <- ggplot(mental_selected_df)+
-      #   geom_col(mapping = aes(
-      #     x = mental.disorder.cases,
-      #     y = mental.disorder.type)) +
-      #   labs(x = "Number of Mental Disorder Cases", y = "Mental Disorder Type") +
-      #   scale_x_continuous(labels = label_number(scale_cut = cut_short_scale()))
-      #     #fill = mental.disorder.type))
 
      
       # my_plot <- ggplot(food_selected_df, aes(fill = food.kilocalories,
@@ -92,7 +100,7 @@ server <- function(input, output){
       #   #scale_fill_discrete(name = "Types", labels = c("Anxiety Disorders", "Bipolar Disorders", 
       #   #"Depressive Disorders", "Eating Disorders", "Schizophrenia"))
   
-    return(ggplotly(my_plot))
+    return(ggplotly(my_plot, tooltip = "text"))
     })
     
     
