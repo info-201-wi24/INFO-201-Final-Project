@@ -18,7 +18,7 @@ disorder_colnames <- c(
 )
 
 food_colnames <- c(
-  "Alcoholic Bevarages" = "Daily.caloric.intake.per.person.from.alcoholic.beverages",
+  "Alcoholic Beverages" = "Daily.caloric.intake.per.person.from.alcoholic.beverages",
   "Sugar" = "Daily.caloric.intake.per.person.from.sugar",
   "Meat" = "Daily.caloric.intake.per.person.from.meat",
   "Starchy Roots" = "Daily.caloric.intake.per.person.from.starchy.roots",
@@ -29,13 +29,14 @@ food_colnames <- c(
   "Other" = "Daily.caloric.intake.per.person.from.other.commodities"
 )
  
+
 category_colnames <- c(
   "Anxiety Disorder" = "Current.number.of.cases.of.anxiety.disorders..in.both.sexes.aged.all.ages",
   "Depressive Disorder" = "Current.number.of.cases.of.depressive.disorders..in.both.sexes.aged.all.ages",
   "Schizophrenia" = "Current.number.of.cases.of.schizophrenia..in.both.sexes.aged.all.ages",
   "Bipolar Disorder" = "Current.number.of.cases.of.bipolar.disorder..in.both.sexes.aged.all.ages", 
   "Eating Disorder" = "Current.number.of.cases.of.eating.disorders..in.both.sexes.aged.all.ages",
-  "Alcoholic Bevarages" = "Daily.caloric.intake.per.person.from.alcoholic.beverages",
+  "Alcoholic Beverages" = "Daily.caloric.intake.per.person.from.alcoholic.beverages",
   "Sugar" = "Daily.caloric.intake.per.person.from.sugar",
   "Meat" = "Daily.caloric.intake.per.person.from.meat",
   "Starchy Roots" = "Daily.caloric.intake.per.person.from.starchy.roots",
@@ -49,43 +50,42 @@ category_colnames <- c(
 #color theme
 my_theme <- bs_theme(bg = "#edf6f9", #background
                      fg = "black", #foreground color
-                     primary = "#90e0ef") # primary color
-
+                     primary = "#00b4d8") # primary color
 
 ## OVERVIEW TAB INFO
 
 overview_tab <- tabPanel("Overview",
    h1("Exploring Associations Between Mental Health and Dietary Compositions"),
    img(src="nutrition.png", height="50%", width="50%"),
-   p("some explanation"),
+   p(""),
    includeMarkdown("intro_text.md")
 )
 
 ## VIZ 1 TAB INFO
 
 viz_1_sidebar <- sidebarPanel(
-  h2("Options for graph"),
   #TODO: Put inputs for modifying graph here
   selectInput(inputId = "year_selection",
               label = "Year",
-              choices = df$Year,
-              selected = 1,
+              choices = unique(df$Year),
+              selected = 2019,
               multiple = FALSE), 
   radioButtons(inputId = "button_choice",
-               label = h3("Data Type"),
+               label = p("Data Type"),
                choices = list("Diet" = 1,
                               "Mental Disorder" = 2),
                               selected = 1),
   selectInput(inputId = "country_selection",
               label = "Country",
-              choices = df$Entity,
-              selected = 1,
+              choices = unique(df$Entity),
+              selected = "United States",
               multiple = FALSE)
 )
 
 viz_1_main_panel <- mainPanel(
-  h2("Dietary Composition and Mental Disorders of Countries"),
+  h2("Dietary Composition and Mental Disorders of Countries (1990-2019)"),
   plotlyOutput(outputId = "country_bar"),
+  p(""),
   includeMarkdown("tab_1_text.md")
 )
 
@@ -99,7 +99,6 @@ viz_1_tab <- tabPanel("Disorder/Food Type",
 ## VIZ 2 TAB INFO
 
 viz_2_sidebar <- sidebarPanel(
-  h2("Options for graph"),
   #TODO: Put inputs for modifying graph here
   selectInput(inputId = "trend_country_selection",
               label = "Country",
@@ -110,16 +109,15 @@ viz_2_sidebar <- sidebarPanel(
     inputId = "trend_selection",
     label = "Types of Food and Mental Disorders",
     choices = category_colnames,
-    selectize = TRUE,
-    # True allows you to select multiple choices...
     multiple = FALSE,
     selected = "Daily.caloric.intake.per.person.from.sugar"
   )
 )
 
 viz_2_main_panel <- mainPanel(
-  h2("Mental Disorder and Diet Trends Over the Years"),
+  h1("Mental Disorder and Diet Trends Over the Years (1990-2019)"),
   plotlyOutput(outputId = "trend_plot"),
+  p(""),
   includeMarkdown("tab_2_text.md")
 )
   
@@ -134,28 +132,28 @@ viz_2_tab <- tabPanel("Trends Over Time",
 ## VIZ 3 TAB INFO
 
 viz_3_sidebar <- sidebarPanel(
-  h2("Options for graph"),
   #TODO: Put inputs for modifying graph here
   selectInput(inputId = "scatter_year_selection",
               label = "Year",
-              choices = df$Year,
-              selected = 1,
+              choices = unique(df$Year),
+              selected = 2019,
               multiple = FALSE),
     selectInput(
               inputId = "x_axis",
               label = "Choose x axis variable", 
               choices = food_colnames,
-              selected = "Daily.caloric.intake.per.person.from.oils.and.fats"),
+              selected = "Daily.caloric.intake.per.person.from.cereals.and.grains"),
     selectInput(
               inputId = "y_axis",
               label = "Choose y axis variable", 
               choices = disorder_colnames,
-              selected = "Current.number.of.cases.of.anxiety.disorders..in.both.sexes.aged.all.ages")
+              selected = "Current.number.of.cases.of.eating.disorders..in.both.sexes.aged.all.ages")
 )
 
 viz_3_main_panel <- mainPanel(
-  h2("Food Comsumption versus Mental Disorder Prevalence"),
+  h2("Food Comsumption versus Mental Disorder Prevalence (1990-2019)"),
   plotlyOutput(outputId = "scatter_plot"),
+  p(""),
   includeMarkdown("tab_3_text.md")
 )
 
@@ -169,11 +167,12 @@ viz_3_tab <- tabPanel("Food vs Mental Health",
 ## CONCLUSIONS TAB INFO
 
 conclusion_tab <- tabPanel("Conclusion",
- h1("Some title"),
+ h1("Conclusion"),
  img(src="mental health.png", height="30%", width="30%"),
- p("some conclusions"),
+ p(""),
  includeMarkdown("conclusion_text.md"),
  img(src="food-groups.png", height="30%", width="30%"),
+ p("")
 )
 
 #Overall UI Navbar
