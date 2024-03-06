@@ -1,11 +1,13 @@
 
 ## Introduction
 
+The pursuit of better mental health endures in the face of a world that is constantly changing. In the process, one fascinating but frequently disregarded component to mental health becomes increasingly important: our eating habits. Our initiative sets out on a investigation to discover the complex connection between our dietary habits and mental health. In order to better understand the complex relationship between dietary practices and mental health, our project will look at how different food categories' consumption patterns and the prevalence of mental disorders have evolved over time and how strongly do they affect each other. Our objective is to shed light on the value of mindful eating as a complementary strategy for not only improving physical health but mental health as well, offering knowledge that may influence dietary guidelines and public policy. <br />
+
 Major Questions: <br />
-How does dietary composition correlate with the different mental health disorders globally from different countries for different years? <br />
-Are there specific dietary factors that are more strongly associated with certain mental health conditions? <br />
-How have diets and mental health trends differ across countries and over the years? <br />
-Can improvements in dietary habits lead to better mental health outcomes?
+-How does dietary composition correlate with the different mental health disorders globally from different countries for different years? <br />
+-Are there specific dietary factors that are more strongly associated with certain mental health conditions? <br />
+-How have diets and mental health trends differ across countries and over the years? <br />
+-Can improvements in dietary habits lead to better mental health outcomes?
 
 Original Data Sources: <br />
 Mental Health Data: https://ourworldindata.org/grapher/mental-illness-estimated-cases <br /> 
