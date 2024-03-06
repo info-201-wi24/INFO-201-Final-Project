@@ -117,7 +117,7 @@ server <- function(input, output){
                                              "<br>Country: ", Entity))) +
           geom_line() +
           geom_point() +
-          labs(x = "Years", y = "Daily Calorie Intake Per Person (kcal)", fill = "Country") +
+          labs(x = "Years", y = "Daily Calorie Intake Per Person (kcal)", color = "Country") +
           scale_x_continuous(breaks = seq(1990, 2020, 5)) +
           scale_y_continuous(labels = label_number(scale_cut = cut_short_scale()))
         

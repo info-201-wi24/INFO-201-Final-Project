@@ -83,7 +83,7 @@ viz_1_sidebar <- sidebarPanel(
 )
 
 viz_1_main_panel <- mainPanel(
-  h2("Dietary Composition and Mental Disorders of Countries (1990-2019)"),
+  h1("Dietary Composition & Mental Disorders of Countries (1990-2019)"),
   plotlyOutput(outputId = "country_bar"),
   p(""),
   includeMarkdown("tab_1_text.md")
@@ -115,7 +115,7 @@ viz_2_sidebar <- sidebarPanel(
 )
 
 viz_2_main_panel <- mainPanel(
-  h1("Mental Disorder and Diet Trends Over the Years (1990-2019)"),
+  h1("Mental Disorder & Diet Trends Over the Years (1990-2019)"),
   plotlyOutput(outputId = "trend_plot"),
   p(""),
   includeMarkdown("tab_2_text.md")
@@ -151,7 +151,7 @@ viz_3_sidebar <- sidebarPanel(
 )
 
 viz_3_main_panel <- mainPanel(
-  h2("Food Comsumption versus Mental Disorder Prevalence (1990-2019)"),
+  h1("Food Comsumption versus Mental Disorder Prevalence"),
   plotlyOutput(outputId = "scatter_plot"),
   p(""),
   includeMarkdown("tab_3_text.md")

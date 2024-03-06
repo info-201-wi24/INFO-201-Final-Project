@@ -5,7 +5,7 @@ account: alchung
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11380386
-bundleId: 8338369
+bundleId: 8340927
 url: https://alchung.shinyapps.io/info-201-final-project/
 version: 1
 asMultiple: FALSE
